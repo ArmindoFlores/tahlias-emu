@@ -1,0 +1,452 @@
+; Initialize memory
+add r5, r0, #0      ; x = 0
+add r6, r0, #0      ; y = 0
+
+io r0, &16, r0      ; set addr to 0    
+io r0, &17, r0      ; set addr to 0    
+io r0, &18, r0      ; set addr to 0  
+
+add r5, r0, #0      ; x = 0
+add r6, r0, #0      ; y = 0
+
+; Fill memory with 0
+lbl #1337, #0
+add r40, r0, #1
+io r0, &20, r0      ; write 0 to memory
+add r5, r5, #1      ; increment x
+cmpeq r5, #0        ; check if we have wrapped back around
++add r6, r6, #1     ; then increment y
+cmpeq r6, #0        ; check if y has wrapped around
++cmpeq r5, #0       ; (x has to be 0 too)
++io r0, &3, r40     ; reset clock
++jdn #350, r0       ; end loop
+jup #1337, r0       ; loop
+
+; Draw structure
+lbl #350, #0
+io r0, &16, r0      ; set addr to 0    
+add r1, r0, #1      ; r1 = 1
+add r5, r0, #10		; x = 10
+add r6, r0, #10		; y = 10
+io r0, &17, r6      ; set addr to y
+io r0, &18, r5      ; set addr to x
+io r0, &20, r1		; write 1 to memory
+add r5, r0, #10		; x = 10
+add r6, r0, #11		; y = 11
+io r0, &17, r6      ; set addr to y
+io r0, &18, r5      ; set addr to x
+io r0, &20, r1		; write 1 to memory
+add r5, r0, #10		; x = 10
+add r6, r0, #12		; y = 12
+io r0, &17, r6      ; set addr to y
+io r0, &18, r5      ; set addr to x
+io r0, &20, r1		; write 1 to memory
+add r5, r0, #20		; x = 20
+add r6, r0, #10		; y = 10
+io r0, &17, r6      ; set addr to y
+io r0, &18, r5      ; set addr to x
+io r0, &20, r1		; write 1 to memory
+add r5, r0, #20		; x = 20
+add r6, r0, #11		; y = 11
+io r0, &17, r6      ; set addr to y
+io r0, &18, r5      ; set addr to x
+io r0, &20, r1		; write 1 to memory
+add r5, r0, #20		; x = 20
+add r6, r0, #12		; y = 12
+io r0, &17, r6      ; set addr to y
+io r0, &18, r5      ; set addr to x
+io r0, &20, r1		; write 1 to memory
+add r5, r0, #30		; x = 30
+add r6, r0, #10		; y = 10
+io r0, &17, r6      ; set addr to y
+io r0, &18, r5      ; set addr to x
+io r0, &20, r1		; write 1 to memory
+add r5, r0, #30		; x = 30
+add r6, r0, #11		; y = 11
+io r0, &17, r6      ; set addr to y
+io r0, &18, r5      ; set addr to x
+io r0, &20, r1		; write 1 to memory
+add r5, r0, #30		; x = 30
+add r6, r0, #12		; y = 12
+io r0, &17, r6      ; set addr to y
+io r0, &18, r5      ; set addr to x
+io r0, &20, r1		; write 1 to memory
+add r5, r0, #40		; x = 40
+add r6, r0, #10		; y = 10
+io r0, &17, r6      ; set addr to y
+io r0, &18, r5      ; set addr to x
+io r0, &20, r1		; write 1 to memory
+add r5, r0, #40		; x = 40
+add r6, r0, #11		; y = 11
+io r0, &17, r6      ; set addr to y
+io r0, &18, r5      ; set addr to x
+io r0, &20, r1		; write 1 to memory
+add r5, r0, #40		; x = 40
+add r6, r0, #12		; y = 12
+io r0, &17, r6      ; set addr to y
+io r0, &18, r5      ; set addr to x
+io r0, &20, r1		; write 1 to memory
+add r5, r0, #50		; x = 50
+add r6, r0, #10		; y = 10
+io r0, &17, r6      ; set addr to y
+io r0, &18, r5      ; set addr to x
+io r0, &20, r1		; write 1 to memory
+add r5, r0, #50		; x = 50
+add r6, r0, #11		; y = 11
+io r0, &17, r6      ; set addr to y
+io r0, &18, r5      ; set addr to x
+io r0, &20, r1		; write 1 to memory
+add r5, r0, #50		; x = 50
+add r6, r0, #12		; y = 12
+io r0, &17, r6      ; set addr to y
+io r0, &18, r5      ; set addr to x
+io r0, &20, r1		; write 1 to memory
+add r5, r0, #30		; x = 30
+add r6, r0, #51		; y = 51
+io r0, &17, r6      ; set addr to y
+io r0, &18, r5      ; set addr to x
+io r0, &20, r1		; write 1 to memory
+add r5, r0, #31		; x = 31
+add r6, r0, #51		; y = 51
+io r0, &17, r6      ; set addr to y
+io r0, &18, r5      ; set addr to x
+io r0, &20, r1		; write 1 to memory
+add r5, r0, #32		; x = 32
+add r6, r0, #51		; y = 51
+io r0, &17, r6      ; set addr to y
+io r0, &18, r5      ; set addr to x
+io r0, &20, r1		; write 1 to memory
+add r5, r0, #33		; x = 33
+add r6, r0, #51		; y = 51
+io r0, &17, r6      ; set addr to y
+io r0, &18, r5      ; set addr to x
+io r0, &20, r1		; write 1 to memory
+add r5, r0, #30		; x = 30
+add r6, r0, #53		; y = 53
+io r0, &17, r6      ; set addr to y
+io r0, &18, r5      ; set addr to x
+io r0, &20, r1		; write 1 to memory
+add r5, r0, #33		; x = 33
+add r6, r0, #53		; y = 53
+io r0, &17, r6      ; set addr to y
+io r0, &18, r5      ; set addr to x
+io r0, &20, r1		; write 1 to memory
+add r5, r0, #29		; x = 29
+add r6, r0, #54		; y = 54
+io r0, &17, r6      ; set addr to y
+io r0, &18, r5      ; set addr to x
+io r0, &20, r1		; write 1 to memory
+add r5, r0, #31		; x = 31
+add r6, r0, #54		; y = 54
+io r0, &17, r6      ; set addr to y
+io r0, &18, r5      ; set addr to x
+io r0, &20, r1		; write 1 to memory
+add r5, r0, #32		; x = 32
+add r6, r0, #54		; y = 54
+io r0, &17, r6      ; set addr to y
+io r0, &18, r5      ; set addr to x
+io r0, &20, r1		; write 1 to memory
+add r5, r0, #34		; x = 34
+add r6, r0, #54		; y = 54
+io r0, &17, r6      ; set addr to y
+io r0, &18, r5      ; set addr to x
+io r0, &20, r1		; write 1 to memory
+add r5, r0, #29		; x = 29
+add r6, r0, #55		; y = 55
+io r0, &17, r6      ; set addr to y
+io r0, &18, r5      ; set addr to x
+io r0, &20, r1		; write 1 to memory
+add r5, r0, #34		; x = 34
+add r6, r0, #55		; y = 55
+io r0, &17, r6      ; set addr to y
+io r0, &18, r5      ; set addr to x
+io r0, &20, r1		; write 1 to memory
+add r5, r0, #29		; x = 29
+add r6, r0, #57		; y = 57
+io r0, &17, r6      ; set addr to y
+io r0, &18, r5      ; set addr to x
+io r0, &20, r1		; write 1 to memory
+add r5, r0, #34		; x = 34
+add r6, r0, #57		; y = 57
+io r0, &17, r6      ; set addr to y
+io r0, &18, r5      ; set addr to x
+io r0, &20, r1		; write 1 to memory
+add r5, r0, #29		; x = 29
+add r6, r0, #58		; y = 58
+io r0, &17, r6      ; set addr to y
+io r0, &18, r5      ; set addr to x
+io r0, &20, r1		; write 1 to memory
+add r5, r0, #30		; x = 30
+add r6, r0, #58		; y = 58
+io r0, &17, r6      ; set addr to y
+io r0, &18, r5      ; set addr to x
+io r0, &20, r1		; write 1 to memory
+add r5, r0, #33		; x = 33
+add r6, r0, #58		; y = 58
+io r0, &17, r6      ; set addr to y
+io r0, &18, r5      ; set addr to x
+io r0, &20, r1		; write 1 to memory
+add r5, r0, #34		; x = 34
+add r6, r0, #58		; y = 58
+io r0, &17, r6      ; set addr to y
+io r0, &18, r5      ; set addr to x
+io r0, &20, r1		; write 1 to memory
+add r5, r0, #29		; x = 29
+add r6, r0, #59		; y = 59
+io r0, &17, r6      ; set addr to y
+io r0, &18, r5      ; set addr to x
+io r0, &20, r1		; write 1 to memory
+add r5, r0, #30		; x = 30
+add r6, r0, #59		; y = 59
+io r0, &17, r6      ; set addr to y
+io r0, &18, r5      ; set addr to x
+io r0, &20, r1		; write 1 to memory
+add r5, r0, #31		; x = 31
+add r6, r0, #59		; y = 59
+io r0, &17, r6      ; set addr to y
+io r0, &18, r5      ; set addr to x
+io r0, &20, r1		; write 1 to memory
+add r5, r0, #32		; x = 32
+add r6, r0, #59		; y = 59
+io r0, &17, r6      ; set addr to y
+io r0, &18, r5      ; set addr to x
+io r0, &20, r1		; write 1 to memory
+add r5, r0, #33		; x = 33
+add r6, r0, #59		; y = 59
+io r0, &17, r6      ; set addr to y
+io r0, &18, r5      ; set addr to x
+io r0, &20, r1		; write 1 to memory
+add r5, r0, #34		; x = 34
+add r6, r0, #59		; y = 59
+io r0, &17, r6      ; set addr to y
+io r0, &18, r5      ; set addr to x
+io r0, &20, r1		; write 1 to memory
+add r5, r0, #30		; x = 30
+add r6, r0, #60		; y = 60
+io r0, &17, r6      ; set addr to y
+io r0, &18, r5      ; set addr to x
+io r0, &20, r1		; write 1 to memory
+add r5, r0, #33		; x = 33
+add r6, r0, #60		; y = 60
+io r0, &17, r6      ; set addr to y
+io r0, &18, r5      ; set addr to x
+io r0, &20, r1		; write 1 to memory
+add r5, r0, #31		; x = 31
+add r6, r0, #61		; y = 61
+io r0, &17, r6      ; set addr to y
+io r0, &18, r5      ; set addr to x
+io r0, &20, r1		; write 1 to memory
+add r5, r0, #32		; x = 32
+add r6, r0, #61		; y = 61
+io r0, &17, r6      ; set addr to y
+io r0, &18, r5      ; set addr to x
+io r0, &20, r1		; write 1 to memory
+add r5, r0, #31		; x = 31
+add r6, r0, #62		; y = 62
+io r0, &17, r6      ; set addr to y
+io r0, &18, r5      ; set addr to x
+io r0, &20, r1		; write 1 to memory
+add r5, r0, #32		; x = 32
+add r6, r0, #62		; y = 62
+io r0, &17, r6      ; set addr to y
+io r0, &18, r5      ; set addr to x
+io r0, &20, r1		; write 1 to memory
+
+; Main loop
+lbl #420, #0
+add r63, r0, #1     ; call screen subroutine
+jdn #79, r0         ; ^
+lbl #78, #1
+
+; Wait for 10cs
+lbl #7, #0
+io r50, &3, r0      ; Read clock
+cmpug r50, #10
++jdn #8, r0
+io r50, &4, r0      ; Read clock
+cmpneq r50, r0      ; Maybe we overshot?
++jdn #8, r0
+jup #7, r0          ; Loop back
+
+lbl #8, #0
+
+add r5, r0, #0		; x = 0
+add r6, r0, #0		; y = 0
+add r40, r0, #1     ; o = 1
+
+lbl #666, #0
+io r0, &16, r0      ; set addr to 0    
+io r0, &17, r6      ; set addr to y    
+io r0, &18, r5      ; set addr to x
+io r1, &19, r0      ; read word from memory
+
+add r63, r0, #2
+jdn #404, r0        ; get neighbours
+lbl #78, #2
+cmpul r2, #2        ; die of underpopulation
++add r1, r0, #0     ; ^
+cmpug r2, #3        ; die of overpopulation
++add r1, r0, #0     ; ^       
+cmpeq r2, #3        ; check if cell has exactly three neighbours
++add r1, r0, #1     ; cell becomes alive
+
+io r0, &16, r40     ; set addr to 1    
+io r0, &17, r6      ; set addr to y    
+io r0, &18, r5      ; set addr to x
+io r0, &20, r1      ; write word to memory
+
+add r5, r5, #1      ; increment x
+cmpeq r5, #0        ; check if we have wrapped back around
++add r6, r6, #1     ; then increment y
+cmpeq r6, #0        ; check if y has wrapped around
++cmpeq r5, #0       ; (x has to be 0 too)
++jdn #777, r0       ; end loop
+jup #666, r0        ; loop
+
+lbl #777, #0
+
+; Load next generation
+lbl #4000, #0
+add r5, r0, #0		; x = 0
+add r6, r0, #0		; y = 0
+add r40, r0, #1     ; o = 1
+
+lbl #4001, #0
+io r0, &16, r40     ; set addr to 1    
+io r0, &17, r6      ; set addr to y    
+io r0, &18, r5      ; set addr to x
+io r1, &19, r0      ; load cell state
+io r0, &16, r0      ; set addr to 0
+io r0, &17, r6      ; set addr to y    
+io r0, &18, r5      ; set addr to x
+io r0, &20, r1      ; write state to memory
+add r5, r5, #1      ; increment x
+cmpeq r5, #0        ; check if we have wrapped back around
++add r6, r6, #1     ; then increment y
+cmpeq r6, #0        ; check if y has wrapped around
++cmpeq r5, #0       ; (x has to be 0 too)
++io r0, &3, r40     ; reset clock
++jdn #651, r0       ; end loop
+jup #4001, r0       ; loop
+
+lbl #651, #0
+jup #420, r0        ; repeat
+
+halt
+
+; Print to screen
+lbl #79, #0
+io r0, &16, r0      ; set addr to 0    
+io r0, &17, r0      ; set addr to 0    
+io r0, &18, r0      ; set addr to 0
+
+add r5, r0, #0      ; x = 0
+add r6, r0, #0      ; y = 0
+
+lbl #1337, #0
+add r40, r0, #1
+io r1, &19, r0      ; read word from memory
+cmpeq r1, #0        ; paint yellow if 1, blue if 0
+-add r2, r0, #60
++add r2, r0, #3
+io r0, &21, r5      ; set GPUX
+io r0, &22, r6      ; set GPUY
+io r0, &23, r2      ; draw pixel
+add r5, r5, #1      ; increment x
+cmpeq r5, #0        ; check if we have wrapped back around
++add r6, r6, #1     ; then increment y
+cmpeq r6, #0        ; check if y has wrapped around
++cmpeq r5, #0       ; (x has to be 0 too)
++io r0, &3, r40     ; reset clock
++jup #78, r63       ; end loop and subroutine
+jup #1337, r0       ; loop
+
+; Get neighbours
+lbl #404, #0      
+add r2, r0, #0      ; result = 0  
+add r10, r0, r5     ; save r5
+add r11, r0, r6     ; save r6
+
+add r5, r5, #1      ; right neighbour
+cmpneq r5, #0
++io r0, &16, r0     ; set addr to 0    
++io r0, &17, r6     ; set addr to y    
++io r0, &18, r5     ; set addr to x
++io r12, &19, r0    ; read word from memory
++cmpeq r12, #1      ; check if neighbour is alive
++add r2, r2, #1     ; result++
+
+add r6, r6, #1      ; lower-right neighbour
+cmpneq r6, #0
++cmpneq r5, #0
++io r0, &16, r0     ; set addr to 0    
++io r0, &17, r6     ; set addr to y    
++io r0, &18, r5     ; set addr to x
++io r12, &19, r0    ; read word from memory
++cmpeq r12, #1      ; check if neighbour is alive
++add r2, r2, #1     ; result++
+
+add r5, r5, #63      ; lower neighbour
+cmpneq r5, #63  
++cmpneq r6, #0    
++io r0, &16, r0     ; set addr to 0    
++io r0, &17, r6     ; set addr to y    
++io r0, &18, r5     ; set addr to x
++io r12, &19, r0    ; read word from memory
++cmpeq r12, #1      ; check if neighbour is alive
++add r2, r2, #1     ; result++
+
+add r5, r5, #63      ; lower-left neighbour
+cmpneq r5, #63
++cmpneq r6, #0
++io r0, &16, r0     ; set addr to 0    
++io r0, &17, r6     ; set addr to y    
++io r0, &18, r5     ; set addr to x
++io r12, &19, r0    ; read word from memory
++cmpeq r12, #1      ; check if neighbour is alive
++add r2, r2, #1     ; result++
+
+add r6, r6, #63      ; left neighbour
+cmpneq r6, #63
++cmpneq r5, #63
++io r0, &16, r0     ; set addr to 0    
++io r0, &17, r6     ; set addr to y    
++io r0, &18, r5     ; set addr to x
++io r12, &19, r0    ; read word from memory
++cmpeq r12, #1      ; check if neighbour is alive
++add r2, r2, #1     ; result++
+
+add r6, r6, #63      ; upper-left neighbour
+cmpneq r6, #63
++cmpneq r5, #63
++io r0, &16, r0     ; set addr to 0    
++io r0, &17, r6     ; set addr to y    
++io r0, &18, r5     ; set addr to x
++io r12, &19, r0    ; read word from memory
++cmpeq r12, #1      ; check if neighbour is alive
++add r2, r2, #1     ; result++
+
+add r5, r5, #1      ; upper neighbour
+cmpneq r5, #0
++cmpneq r6, #63
++io r0, &16, r0     ; set addr to 0    
++io r0, &17, r6     ; set addr to y    
++io r0, &18, r5     ; set addr to x
++io r12, &19, r0    ; read word from memory
++cmpeq r12, #1      ; check if neighbour is alive
++add r2, r2, #1     ; result++
+
+add r5, r5, #1      ; upper-right neighbour
+cmpneq r5, #0
++cmpneq r6, #63
++io r0, &16, r0     ; set addr to 0    
++io r0, &17, r6     ; set addr to y    
++io r0, &18, r5     ; set addr to x
++io r12, &19, r0    ; read word from memory
++cmpeq r12, #1      ; check if neighbour is alive
++add r2, r2, #1     ; result++
+
+add r5, r0, r10
+add r6, r0, r11
+
+jup #78, r63
